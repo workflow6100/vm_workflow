@@ -25,7 +25,7 @@ DEFAULT_ATTACHMENT_DATASTORE_TTL = 1800
 
 
 class IMAPSensor(PollingSensor):
-    def __init__(self, sensor_service, config=None, poll_interval=30):
+    def __init__(self, sensor_service, config=None, poll_interval=10):
         super(IMAPSensor, self).__init__(sensor_service=sensor_service,
                                          config=config,
                                          poll_interval=poll_interval)
