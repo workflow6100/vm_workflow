@@ -2,18 +2,15 @@
 name: Sample
 description: "Rule which sends an email when an email from johndoe@gmail.com is received"
 pack: email
-enabled: false
+enabled: true
 trigger:
   type: email.imap.message
   parameters: {}
 criteria:
   trigger.from:
-    pattern: johndoe@gmail.com
+    pattern: vm create
     type: contains
 action:
-  ref: core.sendmail
+  ref: core.local
   parameters:
-    body: 'We received an email'
-    to: janedoe@gmail.com
-    from: stackstorm@yourcompanyname.com
-    subject: 'Email Received'
+    cmd: echo hi  
