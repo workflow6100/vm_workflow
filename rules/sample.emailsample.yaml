@@ -7,7 +7,7 @@ trigger:
   type: email.imap.message
   parameters: {}
 criteria:
-  trigger.from:
+  trigger.subject:
     pattern: vm create
     type: contains
 action:
