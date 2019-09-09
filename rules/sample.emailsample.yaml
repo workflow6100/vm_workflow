@@ -4,7 +4,7 @@ description: "Rule which sends an email when an email from johndoe@gmail.com is 
 pack: email_test
 enabled: true
 trigger:
-  type: email.imap.message
+  type: email_test.imap.message
   parameters: {}
 criteria:
   trigger.subject:
