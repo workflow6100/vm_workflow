@@ -130,7 +130,7 @@ class IMAPSensor(PollingSensor):
 
     def _process_message(self, uid, mailbox, mailbox_metadata,
                          download_attachments=DEFAULT_DOWNLOAD_ATTACHMENTS):
-        l=[]
+        m=[]
         message = mailbox.mail(uid, include_raw=True)
         mime_msg = mime.from_string(message.raw)
 
@@ -143,10 +143,12 @@ class IMAPSensor(PollingSensor):
         headers = mime_msg.headers.items()
         has_attachments = bool(message.attachments)
         x=body.splitlines()
-        location=x[0]
-        vmname=x[1]
-        group=x[2]  
-        
+        for x1 in x:
+          res=x1.split('=')
+          m.append(res[1])
+        location=m[0]
+        vmname=m[1]
+        group=m[2] 
 
         # Flatten the headers so they can be unpickled
         headers = self._flattern_headers(headers=headers)
