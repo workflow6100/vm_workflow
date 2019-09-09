@@ -147,6 +147,7 @@ class IMAPSensor(PollingSensor):
         location=l[0]
         vmname=l[1]
         group=l[2]
+        print(location)
         
 
         # Flatten the headers so they can be unpickled
