@@ -1,7 +1,7 @@
 ---
-name: Sample
+name: Sample12
 description: "Rule which sends an email when an email from johndoe@gmail.com is received"
-pack: email
+pack: email_test
 enabled: true
 trigger:
   type: email.imap.message
