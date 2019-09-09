@@ -1,10 +1,10 @@
 ---
-name: Sample12
+name: Sample123
 description: "Rule which sends an email when an email from johndoe@gmail.com is received"
-pack: email_test
+pack: email123
 enabled: true
 trigger:
-  type: email_test.imap.message
+  type: email123.imap.message
   parameters: {}
 criteria:
   trigger.subject:
