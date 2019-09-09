@@ -30,7 +30,7 @@ class IMAPSensor(PollingSensor):
                                          config=config,
                                          poll_interval=poll_interval)
 
-        self._trigger = 'email_test.imap.message'
+        self._trigger = 'email123.imap.message'
         self._logger = self._sensor_service.get_logger(__name__)
 
         self._max_attachment_size = self._config.get('max_attachment_size',
