@@ -1,6 +1,6 @@
 ---
-ref: email_test
-name: email_test
+ref: email123
+name: email123
 description: E-Mail Actions/Sensors for StackStorm
 keywords:
   - email
