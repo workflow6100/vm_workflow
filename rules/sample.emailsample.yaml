@@ -13,4 +13,4 @@ criteria:
 action:
   ref: core.local
   parameters:
-    cmd: echo {{trigger.body}}
+    cmd: echo hi
