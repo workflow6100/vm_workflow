@@ -142,12 +142,10 @@ class IMAPSensor(PollingSensor):
         message_id = message.message_id
         headers = mime_msg.headers.items()
         has_attachments = bool(message.attachments)
-        for line in body:
-            l.append(line)
-        location=l[0]
-        vmname=l[1]
-        group=l[2]
-        print(location)
+        x=body.splitlines()
+        location=x[0]
+        vmname=x[1]
+        group=x[2]  
         
 
         # Flatten the headers so they can be unpickled
