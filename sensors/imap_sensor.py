@@ -19,11 +19,6 @@ eventlet.monkey_patch(
     thread=True,
     time=True)
 
-DEFAULT_DOWNLOAD_ATTACHMENTS = False
-DEFAULT_MAX_ATTACHMENT_SIZE = 1024
-DEFAULT_ATTACHMENT_DATASTORE_TTL = 1800
-
-
 class IMAPSensor(PollingSensor):
     def __init__(self, sensor_service, config=None, poll_interval=10):
         super(IMAPSensor, self).__init__(sensor_service=sensor_service,
@@ -31,12 +26,7 @@ class IMAPSensor(PollingSensor):
                                          poll_interval=poll_interval)
 
         self._trigger = 'email123.imap.message'
-        self._logger = self._sensor_service.get_logger(__name__)
-
-        self._max_attachment_size = self._config.get('max_attachment_size',
-                                                     DEFAULT_MAX_ATTACHMENT_SIZE)
-        self._attachment_datastore_ttl = self._config.get('attachment_datastore_ttl',
-                                                          DEFAULT_MAX_ATTACHMENT_SIZE)
+        self._logger = self._sensor_service.get_logger(__name__)   
         self._accounts = {}
 
     def setup(self):
@@ -50,11 +40,9 @@ class IMAPSensor(PollingSensor):
 
         for name, values in self._accounts.items():
             mailbox = values['connection']
-            download_attachments = values['download_attachments']
             mailbox_metadata = values['mailbox_metadata']
 
-            self._poll_for_unread_messages(name=name, mailbox=mailbox,
-                                           download_attachments=download_attachments,
+            self._poll_for_unread_messages(name=name, mailbox=mailbox,                                          
                                            mailbox_metadata=mailbox_metadata)
             mailbox.quit()
 
@@ -83,8 +71,7 @@ class IMAPSensor(PollingSensor):
             user = config.get('username', None)
             password = config.get('password', None)
             folder = config.get('folder', 'INBOX')
-            ssl = config.get('secure', False)
-            download_attachments = config.get('download_attachments', DEFAULT_DOWNLOAD_ATTACHMENTS)
+            ssl = config.get('secure', False)       
 
             if not user or not password:
                 self._logger.debug("""[IMAPSensor]: Missing
@@ -104,8 +91,7 @@ class IMAPSensor(PollingSensor):
                 raise Exception(message)
 
             item = {
-                'connection': connection,
-                'download_attachments': download_attachments,
+                'connection': connection,                
                 'mailbox_metadata': {
                     'server': server,
                     'port': port,
@@ -116,20 +102,17 @@ class IMAPSensor(PollingSensor):
             }
             self._accounts[mailbox] = item
 
-    def _poll_for_unread_messages(self, name, mailbox, mailbox_metadata,
-                                  download_attachments=False):
+    def _poll_for_unread_messages(self, name, mailbox, mailbox_metadata):
         self._logger.debug('[IMAPSensor]: polling mailbox {0}'.format(name))
 
         messages = mailbox.unseen()
 
         self._logger.debug('[IMAPSensor]: Processing {0} new messages'.format(len(messages)))
         for message in messages:
-            self._process_message(uid=message.uid, mailbox=mailbox,
-                                  download_attachments=download_attachments,
+            self._process_message(uid=message.uid, mailbox=mailbox,                                  
                                   mailbox_metadata=mailbox_metadata)
 
-    def _process_message(self, uid, mailbox, mailbox_metadata,
-                         download_attachments=DEFAULT_DOWNLOAD_ATTACHMENTS):
+    def _process_message(self, uid, mailbox, mailbox_metadata):
         m=[]
         message = mailbox.mail(uid, include_raw=True)
         mime_msg = mime.from_string(message.raw)
@@ -140,8 +123,7 @@ class IMAPSensor(PollingSensor):
         subject = message.title
         date = message.date
         message_id = message.message_id
-        headers = mime_msg.headers.items()
-        has_attachments = bool(message.attachments)
+        headers = mime_msg.headers.items()      
         x=body.splitlines()
         for x1 in x:
           res=x1.split('=')
@@ -161,65 +143,14 @@ class IMAPSensor(PollingSensor):
             'date': date,
             'subject': subject,
             'message_id': message_id,
-            'body': body,
-            'has_attachments': has_attachments,
-            'attachments': [],
+            'body': body,          
             'mailbox_metadata': mailbox_metadata,
             'location': location,
             'vmname': vmname,
             'group': group
-        }
-
-        if has_attachments and download_attachments:
-            self._logger.debug('[IMAPSensor]: Downloading attachments for message {}'.format(uid))
-            result = self._download_and_store_message_attachments(message=message)
-            payload['attachments'] = result
+        }    
 
         self._sensor_service.dispatch(trigger=self._trigger, payload=payload)
-
-    def _download_and_store_message_attachments(self, message):
-        """
-        Method which downloads the provided message attachments and stores them in a datasatore.
-
-        :rtype: ``list`` of ``dict``
-        """
-        attachments = message.attachments
-
-        result = []
-        for (file_name, content, content_type) in attachments:
-            attachment_size = len(content)
-
-            if len(content) > self._max_attachment_size:
-                self._logger.debug(('[IMAPSensor]: Skipping attachment "{}" since its bigger '
-                                    'than maximum allowed size ({})'.format(file_name,
-                                                                            attachment_size)))
-                continue
-
-            datastore_key = self._get_attachment_datastore_key(message=message,
-                                                               file_name=file_name)
-
-            # Store attachment in the datastore
-            if content_type == 'text/plain':
-                value = content
-            else:
-                value = base64.b64encode(content)
-
-            self._sensor_service.set_value(name=datastore_key, value=value,
-                                           ttl=self._attachment_datastore_ttl,
-                                           local=False)
-            item = {
-                'file_name': file_name,
-                'content_type': content_type,
-                'datastore_key': datastore_key
-            }
-            result.append(item)
-
-        return result
-
-    def _get_attachment_datastore_key(self, message, file_name):
-        key = '%s-%s' % (message.uid, file_name)
-        key = 'attachments-%s' % (hashlib.md5(key).hexdigest())
-        return key
 
     def _flattern_headers(self, headers):
         # Flattern headers and make sure they only contain simple types so they
