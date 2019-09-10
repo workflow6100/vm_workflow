@@ -14,9 +14,7 @@ trigger_types:
       - subject
       - date
       - message_id
-      - body
-      - attachments
-      - mailbox_metadata
+      - body      
       - location
       - vmname
       - group
