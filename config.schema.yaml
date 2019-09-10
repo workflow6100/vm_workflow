@@ -40,14 +40,4 @@ imap_accounts:
         type: "string"
         required: false
         default: "INBOX"
-max_attachment_size:
-  description: "Maxium size of downloaded attachment in bytes (default 1024)"
-  type: "integer"
-  required: false
-  default: 1024
-attachment_datastore_ttl:
-  description: "TTL in seconds to keep attachments in the datastore. Default 1800"
-  type: "integer"
-  required: false
-  default: 1800
 
