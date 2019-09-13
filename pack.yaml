@@ -1,6 +1,6 @@
 ---
-ref: email123
-name: email123
+ref: angela_pack
+name: vm_workflow
 description: E-Mail Actions/Sensors for StackStorm
 keywords:
   - email
