@@ -1,0 +1,21 @@
+---
+name: vm_workflow
+description: Process an github deployment event and install a pack if the environment matches.
+enabled: true
+entry_point: workflows/vm_action.yaml
+
+runner_type: orquesta
+
+parameters:
+  Group_Name:
+    type: string
+    description: Put group_name.
+    required: true
+  Location:
+    type: string
+    description: Enter Location
+    required: true
+  VM_Name:
+    type: string
+    description: Enter VM_Name
+    required: true 
