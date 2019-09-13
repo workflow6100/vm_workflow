@@ -13,13 +13,13 @@ tasks:
   create_vm:
     action: azure_vm.create_vm
     input:
-        sub_id: <% ctx().sub_id %>
-        client_id: <% ctx().client_id %>
-        secret: <% ctx().secret %>
-        tenant: <% ctx().tenant %>
-        group_name: '{{trigger.group}}'
-        location: '{{trigger.location}}'
-        vmname: '{{trigger.vmname}}'
+        Subcription_id : <% ctx().sub_id %>
+        Client_Id : <% ctx().client_id %>
+        Secret : <% ctx().secret %>
+        Tenant_Id : <% ctx().tenant %>
+        Group_Name : '{{trigger.group}}'
+        Location : '{{trigger.location}}'
+        VM_Name : '{{trigger.vmname}}'
     next:
       - when: <% succeeded() %>
         do:
