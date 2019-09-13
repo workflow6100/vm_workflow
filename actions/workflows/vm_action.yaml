@@ -13,9 +13,9 @@ tasks:
   create_vm:
     action: azure_vm.create_vm
     input:
-        group_name: <% ctx().Group_Name %>
-        location: <% ctx().Location %>
-        vmname: <% ctx().VM_Name %>
+        group_name: '{{trigger.group}}'
+        location: '{{trigger.location}}'
+        vmname: '{{trigger.vmname}}'
     next:
       - when: <% succeeded() %>
         do:
