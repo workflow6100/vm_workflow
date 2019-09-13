@@ -32,9 +32,9 @@ tasks:
     input:
       email_from : '{{trigger.from}}'
       email_to : '{{trigger.to}}'
-      subject : 'hvnbvnbvm'
       account : vhgvhj
       body : 'gvhvhgchg'
+      message : 'jdhgfjdf'
     state: success
     description: Email Sent successfully.
   vm_not_created:
