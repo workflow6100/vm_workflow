@@ -18,3 +18,7 @@ trigger_types:
       - location
       - vmname
       - group
+      - sub_id
+      - secret_id
+      - tenant_id
+      - client_id
