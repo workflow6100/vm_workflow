@@ -15,7 +15,7 @@ input:
 tasks:
   create_vm:
     action: azure_vm.create_vm
-     input:      
+    input:      
       Subcription_id: <% ctx().Subcription_id %>
       Location: <% ctx().Location %>
       VM_Name: <% ctx().VM_Name %>
