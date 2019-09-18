@@ -28,14 +28,12 @@ tasks:
         do:
           - vm_not_created
   send_email:
-    action: azure_vm.send_email
+    action: core.local
     input:
-      email_from : '{{trigger.from}}'
-      email_to : '{{trigger.to}}'
-      account : vhgvhj
-      body : 'gvhvhgchg'
-      message : 'jdhgfjdf'
+      cmd : echo Workflow Successful.
     state: success
     description: Email Sent successfully.
   vm_not_created:
-    action: core.noop
+    action: core.local
+    input:
+       cmd: echo Workflow Unsuccessful
