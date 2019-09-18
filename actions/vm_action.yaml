@@ -7,10 +7,6 @@ entry_point: workflows/vm_action.yaml
 runner_type: orquesta
 
 parameters:
-  Subcription_id:
-    type: string
-    description: 'Subcription_id of azure' 
-    required: true
   Group_Name:
     type: string
     description: 'Group_Name of VM'
@@ -18,20 +14,8 @@ parameters:
   Location:
     type: string
     description: 'Location of VM '
-    default: master
+    required: true
   VM_Name:
     type: string
     description: 'Name of VM'
-    default: production
-  Client_Id:
-    type: string
-    description: Client_Id of azure 
-    required: true
-  Secret:
-    type: string
-    description: Secret key of azure  
-    required: true
-  Tenant_Id:
-    type: string
-    description: Tenant_Id of azure 
     required: true
