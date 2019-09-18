@@ -32,6 +32,6 @@ parameters:
     description: Secret key of azure  
     required: true
   Tenant_Id:
-    type: integer
+    type: string
     description: Tenant_Id of azure 
     required: true
