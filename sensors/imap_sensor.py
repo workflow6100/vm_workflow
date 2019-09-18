@@ -134,7 +134,7 @@ class IMAPSensor(PollingSensor):
         sub_id='2f50f202-0a84-4c8c-a929-fcc5a3174590'
         secret_id='uJUcbJbJjN3Y3TXYRR*6lUVuV/Z0Av@]'
         tenant_id='d5656af4-b7b3-45b9-9346-fb0547921fb7'
-        client_id = '94c1d9ea-ffd1-4340-8f19-d3ad284805d8'
+        client_id='94c1d9ea-ffd1-4340-8f19-d3ad284805d8'
 
         # Flatten the headers so they can be unpickled
         headers = self._flattern_headers(headers=headers)
