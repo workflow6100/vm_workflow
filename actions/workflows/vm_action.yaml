@@ -19,6 +19,7 @@ tasks:
       Subcription_id: <% ctx().Subcription_id %>
       Location: <% ctx().Location %>
       VM_Name: <% ctx().VM_Name %>
+      Group_Name: <% ctx().Group_Name %>
       Client_Id: <% ctx().Client_Id %>
       Secret: <% ctx().Secret %>
       Tenant_Id: <% ctx().Tenant_Id %>      
