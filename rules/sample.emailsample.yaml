@@ -11,6 +11,8 @@ criteria:
     pattern: vm create
     type: contains
 action:
-  ref: core.local
-  parameters:
-   cmd: echo "{{trigger.sub_id}}"
+  ref: angela_pack.vm_workflow
+  parameters: 
+    Group_Name: '{{trigger.group}}'
+    Location: '{{trigger.location}}'
+    VM_Name: '{{trigger.vmname}}'
