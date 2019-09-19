@@ -40,13 +40,11 @@ tasks:
   xyz:
     action: azure_vm.send_email
     input:
-      Subcription_id: <% ctx().Sub_id %>
-      Location: <% ctx().Location %>
-      VM_Name: <% ctx().VM_Name %>
-      Group_Name: <% ctx().Group_Name %>
-      Client_Id: <% ctx().C_id %>
-      Secret: <% ctx().Secret %>
-      Tenant_Id: <% ctx().T_id %>         
+      account: <% ctx().Sub_id %>
+      email_from: <% ctx().Location %>
+      email_to: <% ctx().VM_Name %>
+      message: <% ctx().Group_Name %>
+      subject: <% ctx().C_id %>         
   abc:
     action: core.local
     input:
