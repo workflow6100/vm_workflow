@@ -39,9 +39,9 @@ tasks:
           - email
   email:
     action: angela_pack.send_email
-    input:      
+    input:
       account: <% ctx().account %>
       email_from: <% ctx().email_from %>
       email_to: <% ctx().from %>
       message: <% ctx().message %>
-      subject: <% ctx().subject %>      
+      subject: <% ctx().subject %>    
