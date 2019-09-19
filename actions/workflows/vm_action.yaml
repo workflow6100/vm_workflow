@@ -38,7 +38,7 @@ tasks:
         do:
           - email
   email:
-    action: angela_pack.email
+    action: angela_pack.send_email
     input:      
       account: <% ctx().account %>
       email_from: <% ctx().email_from %>
