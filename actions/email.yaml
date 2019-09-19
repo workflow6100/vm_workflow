@@ -4,7 +4,7 @@
   runner_type: "python-script"
   description: "Send an email."
   enabled: true
-  entry_point: "send_email.py"
+  entry_point: "email.py"
   parameters:
     email_from:
       type: "string"
