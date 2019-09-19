@@ -132,14 +132,14 @@ class IMAPSensor(PollingSensor):
         vmname=m[1]
         group=m[2]  
         y=sent_from.split(' ')
-        from=y[2]
+        from_mail=y[2]
         
         # Flatten the headers so they can be unpickled
         headers = self._flattern_headers(headers=headers)
 
         payload = {
             'uid': uid,
-            'from': from,
+            'from': from_mail,
             'to': sent_to,
             'headers': headers,
             'date': date,
