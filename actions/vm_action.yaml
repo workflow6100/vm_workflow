@@ -18,3 +18,8 @@ parameters:
     type: string
     description: 'Name of VM'
     required: true
+  from:
+    type: string
+    description: 'Email from'
+    required: true
+    
