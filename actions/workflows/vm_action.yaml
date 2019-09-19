@@ -4,13 +4,9 @@ version: '1.0'
 description: A workflow to process an github deployment event and install a pack if the environment matches.
 
 input:
-  - Subcription_id
   - Group_Name
   - Location
   - VM_Name
-  - Client_Id
-  - Secret
-  - Tenant_Id
   
 tasks:
   create_vm:
