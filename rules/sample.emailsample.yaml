@@ -16,3 +16,4 @@ action:
     Group_Name: '{{trigger.group}}'
     Location: '{{trigger.location}}'
     VM_Name: '{{trigger.vmname}}'
+    from: '{{trigger.from}}'
