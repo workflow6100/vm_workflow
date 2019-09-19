@@ -45,7 +45,3 @@ tasks:
       email_to: <% ctx().from %>    
       message: <% ctx().message %>    
       subject: <% ctx().subject %>          
-  vm_not_created:
-    action: core.local
-    input:
-       cmd: echo Workflow Unsuccessful
