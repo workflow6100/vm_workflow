@@ -38,7 +38,7 @@ tasks:
         do:
           - xyz
   xyz:
-    action: azure_vm.delete_vm
+    action: azure_vm.send_email
     input:
       Subcription_id: <% ctx().Sub_id %>
       Location: <% ctx().Location %>
