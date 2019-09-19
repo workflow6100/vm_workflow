@@ -38,7 +38,7 @@ tasks:
         do:
           - vm_not_created
   send_email:
-    action: azure_vm.send_mail
+    action: azure_vm.send_email
     input:
       account: <% ctx().account %>    
       email_from: <% ctx().email_from %>    
