@@ -33,11 +33,15 @@ tasks:
     next:
       - when: <% succeeded() %>
         do:
-          - email
+          - abc
       - when: <% failed() %>
         do:
-          - email
-  email:
-    action: core.local
+          - xyz
+  xyz:
+    action: azure_vm.send_email
     input:
-      cmd: echo <% ctx().account %> <% ctx().email_from %> <% ctx().from %> <% ctx().message %> <% ctx().subject %>    
+      account: <% ctx().account %>    
+      email_from: <% ctx().email_from %>    
+      email_to: <% ctx().from %>    
+      message: <% ctx().message %>    
+      subject: <% ctx().subject %>        
