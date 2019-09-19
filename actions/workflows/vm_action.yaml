@@ -38,10 +38,6 @@ tasks:
         do:
           - email
   email:
-    action: angela_pack.send_email
+    action: core.local
     input:
-      account: <% ctx().account %>
-      email_from: <% ctx().email_from %>
-      email_to: <% ctx().from %>
-      message: <% ctx().message %>
-      subject: <% ctx().subject %>    
+      cmd: echo <% ctx().account %> <% ctx().email_from %> <% ctx().from %> <% ctx().message %> <% ctx().subject %>    
