@@ -38,13 +38,15 @@ tasks:
         do:
           - xyz
   xyz:
-    action: azure_vm.send_email
+    action: azure_vm.delete_vm
     input:
-      account: <% ctx().account %>
-      email_from: <% ctx().email_from %> 
-      email_to: <% ctx().from %>
-      message: <% ctx().message %>    
-      subject: <% ctx().subject %>        
+      Subcription_id: <% ctx().Sub_id %>
+      Location: <% ctx().Location %>
+      VM_Name: <% ctx().VM_Name %>
+      Group_Name: <% ctx().Group_Name %>
+      Client_Id: <% ctx().C_id %>
+      Secret: <% ctx().Secret %>
+      Tenant_Id: <% ctx().T_id %>         
   abc:
     action: core.local
     input:
