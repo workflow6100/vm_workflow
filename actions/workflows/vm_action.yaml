@@ -14,7 +14,7 @@ vars:
   - C_id: '94c1d9ea-ffd1-4340-8f19-d3ad284805d8'
   - Secret: 'uJUcbJbJjN3Y3TXYRR*6lUVuV/Z0Av@]'
   - T_id:  'd5656af4-b7b3-45b9-9346-fb0547921fb7'
-  - account: 'me'
+  - account: 'me123'
   - email_from: 'stackstorm.alert@gmail.com'
   - message: 'Vm request is compleated'
   - subject: 'VM created'
