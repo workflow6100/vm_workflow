@@ -36,7 +36,7 @@ tasks:
           - send_email
       - when: <% failed() %>
         do:
-          - vm_not_created
+          - send_email
   send_email:
     action: core.local
     input:
