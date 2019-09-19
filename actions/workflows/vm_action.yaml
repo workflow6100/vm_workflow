@@ -38,10 +38,10 @@ tasks:
         do:
           - xyz
   xyz:
-    action: azure_vm.send_email
+    action: angela_pack.send_email
     input:
-      account: <% ctx().account %>    
-      email_from: <% ctx().email_from %>    
-      email_to: <% ctx().from %>    
+      account: <% ctx().account %>
+      email_from: <% ctx().email_from %> 
+      email_to: <% ctx().from %>
       message: <% ctx().message %>    
       subject: <% ctx().subject %>        
