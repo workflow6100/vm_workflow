@@ -38,7 +38,7 @@ tasks:
         do:
           - email
   email:
-    action: azure_vm.send_email
+    action: angela_pack.email
     input:      
       account: <% ctx().account %>
       email_from: <% ctx().email_from %>
