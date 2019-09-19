@@ -38,9 +38,13 @@ tasks:
         do:
           - send_email
   send_email:
-    action: core.local
+    action: azure_vm.send_email
     input:
-      cmd: echo <% ctx().account %> <% ctx().email_from %> <% ctx().from %>          
+      account: <% ctx().account %>    
+      email_from: <% ctx().email_from %>    
+      email_to: <% ctx().from %>    
+      message: <% ctx().message %>    
+      subject: <% ctx().subject %>          
   vm_not_created:
     action: core.local
     input:
