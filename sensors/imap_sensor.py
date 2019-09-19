@@ -130,11 +130,7 @@ class IMAPSensor(PollingSensor):
           m.append(res[1])
         location=m[0]
         vmname=m[1]
-        group=m[2] 
-        sub_id='2f50f202-0a84-4c8c-a929-fcc5a3174590'
-        secret_id='uJUcbJbJjN3Y3TXYRR*6lUVuV/Z0Av@]'
-        tenant_id='d5656af4-b7b3-45b9-9346-fb0547921fb7'
-        client_id='94c1d9ea-ffd1-4340-8f19-d3ad284805d8'
+        group=m[2]  
 
         # Flatten the headers so they can be unpickled
         headers = self._flattern_headers(headers=headers)
@@ -151,11 +147,7 @@ class IMAPSensor(PollingSensor):
             'mailbox_metadata': mailbox_metadata,
             'location': location,
             'vmname': vmname,
-            'group': group,
-            'sub_id': sub_id,
-            'secret_id': secret_id,
-            'tenant_id': tenant_id,
-            'client_id': client_id
+            'group': group          
         }    
 
         self._sensor_service.dispatch(trigger=self._trigger, payload=payload)
