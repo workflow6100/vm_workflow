@@ -38,10 +38,7 @@ tasks:
         do:
           - xyz
   xyz:
-    action: angela_pack.mail
-    input:            
-      email_to: 'harsh6100@gmail.com'
-      body: 'asfdas'       
+    action: angela_pack.mail  
   abc:
     action: core.local
     input:
