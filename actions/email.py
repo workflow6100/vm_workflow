@@ -5,7 +5,7 @@ from email.mime.text import MIMEText
 from st2common.runners.base_action import Action
 
 class SendEmail(Action):
-    def run(self,email_to, subject, message):
+    def run(self,email_to, subject, body):
       sender_email = "stackstorm.alert@gmail.com"
       password = "harsh6100"
         
@@ -14,8 +14,8 @@ class SendEmail(Action):
       message["To"] = email_to
       message["Subject"] = subject
       
-      message.attach(MIMEText(message, "plain"))
-      text =base64.urlsafe_b64encode(message.as_string().encode('UTF-8')).decode('ascii')
+      message.attach(MIMEText(message, "plain"))      
+      text = message.as_string()
       
       context = ssl.create_default_context()
       with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
