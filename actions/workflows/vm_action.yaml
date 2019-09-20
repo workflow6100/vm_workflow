@@ -31,10 +31,10 @@ tasks:
     next:
       - when: <% succeeded() %>
         do:
-          - xyz
+          - abc
       - when: <% failed() %>
         do:
-          - abc
+          - xyz
   xyz:
     action: angela_pack.mail  
     input:
