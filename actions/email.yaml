@@ -9,11 +9,7 @@
     email_to:
       type: "array"
       description: "Email addresses to send TO."
-      required: true
-    subject:
-      type: "string"
-      description: "Subject of the email"
-      required: true
+      required: true    
     body:
       type: "string"
       description: "Message to send on the email"
