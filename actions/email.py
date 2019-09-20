@@ -5,6 +5,6 @@ class SendEmail(Action):
         s = smtplib.SMTP('smtp.gmail.com', 587) 
         s.starttls() 
         s.login("stackstorm.alert@gmail.com", "harsh6100") 
-        message = 'aasfdasf'
+        message = 'VM successfully Created'
         s.sendmail("stackstorm.alert@gmail.com", email_to, message) 
         s.quit() 
