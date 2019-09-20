@@ -6,7 +6,7 @@
   enabled: true
   entry_point: "email.py"
   parameters:
-  email_to:
-    type: string
-    description: 'Group_Name of VM'
-    required: true
+     email_to:
+       type: string
+       description: 'Group_Name of VM'
+       required: true
