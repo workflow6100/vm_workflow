@@ -1,1 +1,20 @@
-
+---
+  name: "send_email"
+  ref: azure_vm
+  runner_type: "python-script"
+  description: "Send an email."
+  enabled: true
+  entry_point: "send_email.py"
+  parameters:
+    email_to:
+      type: "array"
+      description: "Email addresses to send TO."
+      required: true
+    subject:
+      type: "string"
+      description: "Subject of the email"
+      required: true
+    message:
+      type: "string"
+      description: "Message to send on the email"
+      required: true
