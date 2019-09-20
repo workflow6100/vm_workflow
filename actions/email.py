@@ -15,7 +15,7 @@ class SendEmail(Action):
       message["Subject"] = subject
       
       message.attach(MIMEText(message, "plain"))
-      text = message.as_string()
+      text =base64.urlsafe_b64encode(message.as_string().encode('UTF-8')).decode('ascii')
       
       context = ssl.create_default_context()
       with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
