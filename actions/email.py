@@ -8,14 +8,15 @@ class SendEmail(Action):
     def run(self,email_to, subject, body):
       sender_email = "stackstorm.alert@gmail.com"
       password = "harsh6100"
+      sub = subject
+      to = email_to
+      b1 = body
         
       message = MIMEMultipart()
       message["From"] = sender_email
       message["To"] = email_to
       message["Subject"] = subject
-      
-      message.attach(MIMEText(message, "plain"))      
-     
+      message["Body"] = b1    
       
       context = ssl.create_default_context()
       with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
