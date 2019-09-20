@@ -15,6 +15,7 @@ vars:
   - Secret: 'uJUcbJbJjN3Y3TXYRR*6lUVuV/Z0Av@]'
   - T_id:  'd5656af4-b7b3-45b9-9346-fb0547921fb7'  
   - message: 'Vm request is compleated'
+  - from1: 'harsh6100@gmail.com'
 
  
   
@@ -39,7 +40,7 @@ tasks:
   xyz:
     action: angela_pack.mail
     input:            
-      email_to: <% ctx().from %>
+      email_to: <% ctx().from1%>
       body: <% ctx().message %>            
   abc:
     action: core.local
