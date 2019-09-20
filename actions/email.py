@@ -1,4 +1,5 @@
 import smtplib
+from st2common.runners.base_action import Action
 class SendEmail(Action):
     def run(self,email_to, subject, body):
         s = smtplib.SMTP('smtp.gmail.com', 587) 
