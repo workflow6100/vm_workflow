@@ -18,6 +18,7 @@ vars:
   - email_from: 'stackstorm.alert@gmail.com'
   - message: 'Vm request is compleated'
   - subject: 'VM created'
+  - from123: 'harsh6100@gmail.com'
   
 tasks:
   create_vm:
@@ -42,7 +43,7 @@ tasks:
     input:
       account: <% ctx().account %>
       email_from: <% ctx().email_from %>
-      email_to: <% ctx().from %>
+      email_to: <% ctx().from123 %>
       message: <% ctx().message %>
       subject: <% ctx().subject %>         
   abc:
