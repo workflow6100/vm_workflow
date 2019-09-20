@@ -14,7 +14,7 @@
       type: "string"
       description: "Subject of the email"
       required: true
-    message:
+    body:
       type: "string"
       description: "Message to send on the email"
       required: true
