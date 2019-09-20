@@ -1,10 +1,10 @@
 ---
-  name: "send_email"
-  ref: azure_vm
+  name: "mail"
+  ref: angela_pack
   runner_type: "python-script"
   description: "Send an email."
   enabled: true
-  entry_point: "send_email.py"
+  entry_point: "email.py"
   parameters:
     email_to:
       type: "array"
