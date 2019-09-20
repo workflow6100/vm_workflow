@@ -16,8 +16,6 @@ vars:
   - T_id:  'd5656af4-b7b3-45b9-9346-fb0547921fb7'  
   - message: 'Vm request is compleated'
   - from1: 'harsh6100@gmail.com'
-
- 
   
 tasks:
   create_vm:
@@ -33,13 +31,15 @@ tasks:
     next:
       - when: <% succeeded() %>
         do:
-          - abc
+          - xyz
       - when: <% failed() %>
         do:
-          - xyz
+          - abc
   xyz:
     action: angela_pack.mail  
+    input:
+      email_to: <% ctx().from %> 
   abc:
     action: core.local
     input:
-      cmd: echo hi     
+      cmd: echo Workflow failed     
