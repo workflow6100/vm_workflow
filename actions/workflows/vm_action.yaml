@@ -40,8 +40,8 @@ tasks:
   xyz:
     action: angela_pack.mail
     input:            
-      email_to: <% ctx().from1%>
-      body: <% ctx().message %>            
+      email_to: 'harsh6100@gmail.com'
+      body: 'asfdas'       
   abc:
     action: core.local
     input:
