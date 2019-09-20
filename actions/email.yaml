@@ -5,12 +5,3 @@
   description: "Send an email."
   enabled: true
   entry_point: "email.py"
-  parameters:
-    email_to:
-      type: "array"
-      description: "Email addresses to send TO."
-      required: true    
-    body:
-      type: "string"
-      description: "Message to send on the email"
-      required: true
