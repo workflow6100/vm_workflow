@@ -1,5 +1,4 @@
 import email, smtplib, ssl
-from email import encoders
 from email.mime.base import MIMEBase
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
@@ -9,7 +8,7 @@ class SendEmail(Action):
     def run(self,email_to, subject, message):
       sender_email = "stackstorm.alert@gmail.com"
       password = "harsh6100"
-      
+        
       message = MIMEMultipart()
       message["From"] = sender_email
       message["To"] = email_to
